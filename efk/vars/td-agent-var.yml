@@ -1,0 +1,4 @@
+---
+tdAgentConf_destination_folder: "/etc/td-agent"
+tdAgentConf_source_file: "files_to_copy/td-agent-files/td-agent.conf.j2"
+tdAgentConf_destination_file: "td-agent.conf"

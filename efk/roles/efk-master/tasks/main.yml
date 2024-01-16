@@ -1,0 +1,5 @@
+---
+- name: Start EFK services
+  command: docker-compose up -d
+  args:
+    chdir: "~/efk/"

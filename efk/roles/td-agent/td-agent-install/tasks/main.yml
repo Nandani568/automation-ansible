@@ -1,0 +1,27 @@
+---
+- name: Download td-agent installation script
+  get_url:
+    url: "https://toolbelt.treasuredata.com/sh/install-ubuntu-jammy-td-agent4.sh"
+    dest: "/tmp/install-td-agent.sh"
+
+- name: Install td-agent
+  become: yes
+  command: "sh /tmp/install-td-agent.sh"
+
+- name: Configure rsyslog
+  become: yes
+  lineinfile:
+    path: /etc/rsyslog.conf
+    line: "*.*@127.0.0.1:42185"
+  notify:
+    - restart rsyslog
+
+- name: Restart rsyslog
+  become: yes
+  systemd:
+    name: rsyslog
+    state: restarted
+
+- name: Create td-agent backup
+  become: yes
+  command: "mv /etc/td-agent/td-agent.conf /etc/td-agent/td-agent.back"

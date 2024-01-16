@@ -1,0 +1,4 @@
+all:
+  hosts:
+    efk_master_setup:
+      ansible_host: [ip-address]

@@ -1,0 +1,25 @@
+---
+- name: Ensure the folder exists
+  file:
+    path: "{{ fluentd_destination_folder }}"
+    state: directory
+  when: not ansible_check_mode
+
+- name: Copy folder to the destination
+  synchronize:
+    src: "{{ fluentd_source_folder }}"
+    dest: "{{ fluentd_destination_folder }}"
+    archive: true
+  when: not ansible_check_mode
+
+- name: Ensure the folder exists
+  file:
+    path: "{{ efk_destination_folder }}"
+    state: directory
+  when: not ansible_check_mode
+
+- name: Copy file to the folder
+  copy:
+    src: "{{ efk_source_file }}"
+    dest: "{{ efk_destination_folder }}/{{efk_destination_file}}"
+  when: not ansible_check_mode

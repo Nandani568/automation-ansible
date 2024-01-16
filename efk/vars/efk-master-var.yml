@@ -1,0 +1,6 @@
+---
+fluentd_source_folder: "files_to_copy/efk-master-files/fluentd"
+fluentd_destination_folder: "/root/efk/"
+efk_destination_folder: "/root/efk/"
+efk_source_file: "files_to_copy/efk-master-files/docker-compose.yml"
+efk_destination_file:  "docker-compose.yml"

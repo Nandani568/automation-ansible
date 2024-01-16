@@ -1,0 +1,7 @@
+- name: Configure Master
+  hosts: all
+  become: yes
+  roles:
+    - td-agent/td-agent-install
+    - copy-files/td-agent-files
+    - td-agent/td-agent-restart

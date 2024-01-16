@@ -1,0 +1,12 @@
+---
+- name: Ensure the folder exists
+  file:
+    path: "{{ tdAgentConf_destination_folder }}"
+    state: directory
+  when: not ansible_check_mode
+
+- name: Copy file to the folder
+  copy:
+    src: "{{ tdAgentConf_source_file }}"
+    dest: "{{ tdAgentConf_destination_folder }}/{{tdAgentConf_destination_file}}"
+  when: not ansible_check_mode

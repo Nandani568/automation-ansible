@@ -1,0 +1,4 @@
+all:
+  hosts:
+    td_agent_setup:
+      ansible_host: [ip-address]

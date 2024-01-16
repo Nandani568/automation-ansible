@@ -1,0 +1,6 @@
+- name: Configure Master
+  hosts: all
+  become: yes
+  roles:
+    - copy-files/efk-master-files
+    - efk-master

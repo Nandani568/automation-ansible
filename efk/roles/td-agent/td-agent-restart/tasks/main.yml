@@ -1,0 +1,19 @@
+---
+- name: Stop td-agent service
+  become: yes
+  systemd:
+    name: td-agent.service
+    state: stopped
+
+- name: Enable td-agent service
+  become: yes
+  systemd:
+    name: td-agent.service
+    enabled: yes
+
+- name: Start td-agent service
+  become: yes
+  systemd:
+    name: td-agent.service
+    state: started
+
